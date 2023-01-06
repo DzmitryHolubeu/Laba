@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/logout">Logout</a>
+<a href="/hello/admin">Admin page</a>
+<h1>Hi</h1>
+
+
+<h1>Stocks: </h1>
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Count</th>
+        <th>MaxCount</th>
+        <th>Action</th>
+
+    </tr>
+    <tr th:each="stock: ${stocks}">
+        <td th:text="${stock.id}"></td>
+        <td th:text="${stock.getName()}"></td>
+        <td th:text="${stock.getAddress()}"></td>
+        <td th:text="${stock.getCount()}"></td>
+        <td th:text="${stock.getMaxCount()}"></td>
+
+        <td>
+
+            <div>
+                <form th:action="@{/hello/reserve/{id}(id = ${stock.getId()})}" th:method="GET">
+                    <button type="submit">Reserve</button>
+                </form>
+            </div>
+        </td>
+        <td>
+
+            <div>
+                <form th:action="@{/hello/infoPage/{id}(id = ${stock.getId()})}" th:method="GET">
+                    <button type="submit">Info</button>
+                </form>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>

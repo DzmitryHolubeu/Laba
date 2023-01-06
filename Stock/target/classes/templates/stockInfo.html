@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Products:</h1>
+<table class="table">
+    <tr th:each="stock: ${stocks}">
+        <td th:text="${stock.getName()}"></td>
+        <td th:text="${stock.getAddress()}"></td>
+        <td th:text="${stock.getCount()}"></td>
+        <td th:text="${stock.getMaxCount()}"></td>
+    </tr>
+
+    <tr>
+
+        <th>Product name</th>
+        <th>Size</th>
+        <th>User</th>
+
+    </tr>
+    <tr th:each="product: ${products}">
+        <td th:text="${product.getProdName()}"></td>
+        <td th:text="${product.getSize()}"></td>
+        <td th:text="${product.getUsername()}"></td>
+
+    </tr>
+</table>
+</body>
+</html>

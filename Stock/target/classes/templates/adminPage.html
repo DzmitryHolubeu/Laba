@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+<h1>Users</h1>
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="user: ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.getUsername()}"></td>
+            <td th:text="${user.getEmail()}"></td>
+            <td th:text="${user.getRole()}"></td>
+            <td>
+            <form th:method="POST" th:action="@{/hello/admin/delete/{id}(id = ${user.getId()})}">
+                <button>Удалить</button>
+            </form>
+                <form th:method="POST" th:action="@{/hello/admin/makeAdmin/{id}(id = ${user.getId()})}">
+                    <button>Сделать админом</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+<h1>Stocks: </h1>
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Count</th>
+            <th>MaxCount</th>
+            <th>Action</th>
+
+        </tr>
+        <tr th:each="stock: ${stocks}">
+            <td th:text="${stock.id}"></td>
+            <td th:text="${stock.getName()}"></td>
+            <td th:text="${stock.getAddress()}"></td>
+            <td th:text="${stock.getCount()}"></td>
+            <td th:text="${stock.getMaxCount()}"></td>
+        </tr>
+        <td>
+
+            <div>
+                <form th:action="@{/hello/admin/addStock}" th:method="GET">
+                    <button type="submit">Add Stock</button>
+                </form>
+            </div>
+
+        </td>
+    </table>
+
+</form>
+</body>
+</html>

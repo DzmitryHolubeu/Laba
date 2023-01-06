@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/hello/reserve/{id}(id = ${product.getId()})}" th:object="${product}">
+        <label for="prodName">name: </label>
+        <input type="text" th:field="*{prodName}" id="prodName"/>
+
+        <label for="size"> size: </label>
+        <input type="text" th:field="*{size}" id="size"/>
+
+
+        <input type="submit" value="Reserve!"/>
+
+
+<h2>Confirm email</h2>
+    <label for="username">Введите имя пользователя: </label>
+    <input type="text" name="username" id="username"/>
+    <br/>
+ <!--   <label for="password">Введите пароль: </label>
+    <input type="password" name="password" id="password"/>
+-->
+</form>
+</body>
+</html>

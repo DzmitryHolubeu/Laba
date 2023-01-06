@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AddStock</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/hello/admin/addStock}" th:object="${stock}">
+    <label for="name">name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+
+    <label for="address"> address: </label>
+    <input type="text" th:field="*{address}" id="address"/>
+
+
+    <label for="maxCount">Maxcount: </label>
+    <input type="text" th:field="*{maxCount}" id="maxCount"/>
+
+    <input type="submit" value="Submit!"/>
+</form>
+</body>
+</html>
